@@ -1,12 +1,3 @@
-word = %W[a a r d v a r k]
-# new_word = %W[a n o t h e r]
-
-word_length = word.length
-
-words_array = []
-words_array << word
-# words_array << new_word
-
 guesses = []
 
 guess0 = [
@@ -130,6 +121,14 @@ gameover = [
 ]
 
 guesses.push(guess0, guess1, guess2, guess3, guess4, guess5, guess6, guess7, guess8, gameover)
+
+word = %W[a a r d v a r k]
+# word = %W[a n o t h e r]
+
+word_length = word.length
+
+words_array = []
+words_array << word
 
 blanks =[]
 word.length.times do
