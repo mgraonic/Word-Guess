@@ -144,31 +144,56 @@ word.each.with_index do |chr, index|
   word_hash[chr] = index
 end
 
+guessed_letters = []
+
 counter = 0
-10.times do
+6.times do
   print "Guess a letter: "
   letter_guess = gets.chomp.downcase
 
-  # ____________
-  if word.include?(letter_guess)
-    index_number = word_hash[letter_guess]
-    # sub letter for blank at that index
-    blanks[index_number] = letter_guess
-    counter += 1
-  else
-    puts "Try again."
+  guessed_letters.each do | value |
+    print value.upcase
+    print " "
   end
 
+
+
+  if guessed_letters.include?(letter_guess)
+    puts "\nYou've already guessed this letter."
+  else
+    guessed_letters << letter_guess
+  end
+
+# ____________
+
+# loop over word aray
+# find where letter_guess matches a value
+# take that index
+# subsititute letter_guess at that index
+# in the blanks array
+
+word.each.with_index do |letter, index|
+  if letter == letter_guess
+  blanks[index] = letter_guess
+end
+counter += 1
+# else
+#   puts "\nTry again."
+end
+
   # ______________
+  puts
   blanks.each do | value |
     print value
   end
+
   puts
   if counter == word.length
     puts "You win!"
     exit
   end
 end
+
 
 p word_hash
 p blanks
