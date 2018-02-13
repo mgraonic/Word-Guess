@@ -1,4 +1,4 @@
-word = %W[a n s w e r]
+word = %W[a a r d v a r k]
 # new_word = %W[a n o t h e r]
 
 word_length = word.length
