@@ -135,19 +135,11 @@ word.length.times do
   blanks << "_"
 end
 
-puts "_" * word.length # combine with 134-137
-
-
-#______________
-word_hash = Hash.new # empty hash
-word.each.with_index do |chr, index|
-  word_hash[chr] = index
-end
-
 guessed_letters = []
 
 counter = 0
 6.times do
+ counter += 1
   print "Guess a letter: "
   letter_guess = gets.chomp.downcase
 
@@ -156,30 +148,23 @@ counter = 0
     print " "
   end
 
-
-
   if guessed_letters.include?(letter_guess)
     puts "\nYou've already guessed this letter."
+    counter -= 1
   else
     guessed_letters << letter_guess
   end
 
-# ____________
+  # ____________
+  if !word.include?(letter_guess)
+    puts "\nTry again."
+  end
 
-# loop over word aray
-# find where letter_guess matches a value
-# take that index
-# subsititute letter_guess at that index
-# in the blanks array
-
-word.each.with_index do |letter, index|
-  if letter == letter_guess
-  blanks[index] = letter_guess
-end
-counter += 1
-# else
-#   puts "\nTry again."
-end
+  word.each.with_index do |letter, index|
+    if letter == letter_guess
+      blanks[index] = letter_guess
+    end
+  end
 
   # ______________
   puts
@@ -187,13 +172,15 @@ end
     print value
   end
 
-  puts
-  if counter == word.length
+  counter += 1
+
+  if (counter == 6) && (blanks != word)
+    puts "You lose."
+  end
+
+  if word == blanks
     puts "You win!"
     exit
   end
 end
-
-
-p word_hash
 p blanks
