@@ -1,29 +1,29 @@
 class Word
-  attr_accessor :word_array, :word_hash
+  attr_accessor :letter_array, :letter_hash
 
   def initialize(new_word)
-    @word = new_word
-    @word_array = []
+    @new_word = new_word
+    @letter_array = []
     arrayify
-    @word_hash = {}
+    @letter_hash = {}
     hashify
   end
 
   def arrayify
-    @word.each_char do |char|
-      @word_array << char
+    @new_word.each_char do |char|
+      @letter_array << char
     end
   end
 
   def hashify
-    @word_array.each.with_index do |chr, index|
-      @word_hash[chr] = index
+    @letter_array.each.with_index do |chr, index|
+      @letter_hash[index] = chr
     end
   end
 end
 
-torsword = Word.new("taco")
+torsword = Word.new("aardvark")
 
 # puts torsword
-p torsword.word_array
-p torsword.word_hash
+p torsword.letter_array
+p torsword.letter_hash
