@@ -1,3 +1,5 @@
+require 'colorize'
+
 class Word
   attr_accessor :guessed_letters, :blanks, :wrong_guesses, :letters
 
@@ -30,9 +32,9 @@ class Word
     end
     if !@letters.include?(guess)
       @wrong_guesses += 1
-      puts "\nYou guessed wrong! Try again."
+      puts "\nYou guessed wrong! Try again.".colorize(:red)
     else
-      puts "\nCorrect!!!"
+      puts "\nCorrect!!!".colorize(:green)
     end
   end
 
@@ -57,123 +59,123 @@ end
 class Image
   def initialize
     @image0 = [
-      "                           __/ \\--\\",
-      "                           U |_|__|",
-      "                                ||",
-      "                                ||",
-      ",   ,  ,   ,  ,   ,   ,   ,   ,  |",
-      "||__||__||__||__||__||__||__||__||",
-      "|.--..--..--..--..--..--..--..--.|",
-      "||__||__||__||__||__||__||__||__||",
-      "|.--..--..--..--..--..--..--..--.|",
-      "||  ||  ||  ||  ||  ||  ||  ||  ||"
+      "                           __/ \\--\\".colorize(:red),
+      "                           U |_|__|".colorize(:light_red),
+      "                                ||".colorize(:yellow),
+      "                                ||".colorize(:green),
+      ",   ,  ,   ,  ,   ,   ,   ,   ,  |".colorize(:blue),
+      "||__||__||__||__||__||__||__||__||".colorize(:magenta),
+      "|.--..--..--..--..--..--..--..--.|".colorize(:red),
+      "||__||__||__||__||__||__||__||__||".colorize(:light_red),
+      "|.--..--..--..--..--..--..--..--.|".colorize(:yellow),
+      "||  ||  ||  ||  ||  ||  ||  ||  ||".colorize(:green)
     ]
     @image1 = [
-      "                           __/ \\--\\",
-      "                           U |_|__|",
-      "                                ||",
-      "                                ||",
-      "    ,  ,   ,  ,   ,   ,   ,   ,  |",
-      "    ||__||__||__||__||__||__||__||",
-      "    ..--..--..--..--..--..--..--.|",
-      "    ||__||__||__||__||__||__||__||",
-      "    ..--..--..--..--..--..--..--.|",
-      "||  ||  ||  ||  ||  ||  ||  ||  ||"
+      "                           __/ \\--\\".colorize(:red),
+      "                           U |_|__|".colorize(:light_red),
+      "                                ||".colorize(:yellow),
+      "                                ||".colorize(:green),
+      "    ,  ,   ,  ,   ,   ,   ,   ,  |".colorize(:blue),
+      "    ||__||__||__||__||__||__||__||".colorize(:magenta),
+      "    ..--..--..--..--..--..--..--.|".colorize(:red),
+      "    ||__||__||__||__||__||__||__||".colorize(:light_red),
+      "    ..--..--..--..--..--..--..--.|".colorize(:yellow),
+      "||  ||  ||  ||  ||  ||  ||  ||  ||".colorize(:green)
     ]
     @image2 = [
-      "                           __/ \\--\\",
-      "                           U |_|__|",
-      "                                ||",
-      "                                ||",
-      "        ,  ,  ,   ,   ,   ,   ,  |",
-      "        ||__||__||__||__||__||__||",
-      "        ..--..--..--..--..--..--.|",
-      "        ||__||__||__||__||__||__||",
-      "        ..--..--..--..--..--..--.|",
-      "||  ||  ||  ||  ||  ||  ||  ||  ||"
+      "                           __/ \\--\\".colorize(:red),
+      "                           U |_|__|".colorize(:light_red),
+      "                                ||".colorize(:yellow),
+      "                                ||".colorize(:green),
+      "        ,  ,  ,   ,   ,   ,   ,  |".colorize(:blue),
+      "        ||__||__||__||__||__||__||".colorize(:magenta),
+      "        ..--..--..--..--..--..--.|".colorize(:red),
+      "        ||__||__||__||__||__||__||".colorize(:light_red),
+      "        ..--..--..--..--..--..--.|".colorize(:yellow),
+      "||  ||  ||  ||  ||  ||  ||  ||  ||".colorize(:green)
     ]
     @image3 = [
-      "                           __/ \\--\\",
-      "                           U |_|__|",
-      "                                ||",
-      "                                ||",
-      "           ,  ,   ,   ,   ,   ,  |",
-      "            ||__||__||__||__||__||",
-      "            ..--..--..--..--..--.|",
-      "            ||__||__||__||__||__||",
-      "            ..--..--..--..--..--.|",
-      "||  ||  ||  ||  ||  ||  ||  ||  ||"
+      "                           __/ \\--\\".colorize(:red),
+      "                           U |_|__|".colorize(:light_red),
+      "                                ||".colorize(:yellow),
+      "                                ||".colorize(:green),
+      "           ,  ,   ,   ,   ,   ,  |".colorize(:blue),
+      "            ||__||__||__||__||__||".colorize(:magenta),
+      "            ..--..--..--..--..--.|".colorize(:red),
+      "            ||__||__||__||__||__||".colorize(:light_red),
+      "            ..--..--..--..--..--.|".colorize(:yellow),
+      "||  ||  ||  ||  ||  ||  ||  ||  ||".colorize(:green)
     ]
     @image4 = [
-      "                           __/ \\--\\",
-      "                           U |_|__|",
-      "                                ||",
-      "                                ||",
-      "                  ,   ,   ,   ,  |",
-      "                ||__||__||__||__||",
-      "                ..--..--..--..--.|",
-      "                ||__||__||__||__||",
-      "                ..--..--..--..--.|",
-      "||  ||  ||  ||  ||  ||  ||  ||  ||"
+      "                           __/ \\--\\".colorize(:red),
+      "                           U |_|__|".colorize(:light_red),
+      "                                ||".colorize(:yellow),
+      "                                ||".colorize(:green),
+      "                  ,   ,   ,   ,  |".colorize(:blue),
+      "                ||__||__||__||__||".colorize(:magenta),
+      "                ..--..--..--..--.|".colorize(:red),
+      "                ||__||__||__||__||".colorize(:light_red),
+      "                ..--..--..--..--.|".colorize(:yellow),
+      "||  ||  ||  ||  ||  ||  ||  ||  ||".colorize(:green)
     ]
     @image5 = [
-      "                           __/ \\--\\",
-      "                           U |_|__|",
-      "                                ||",
-      "                                ||",
-      "                      ,   ,   ,  |",
-      "                    ||__||__||__||",
-      "                    ..--..--..--.|",
-      "                    ||__||__||__||",
-      "                    ..--..--..--.|",
-      "||  ||  ||  ||  ||  ||  ||  ||  ||"
+      "                           __/ \\--\\".colorize(:red),
+      "                           U |_|__|".colorize(:light_red),
+      "                                ||".colorize(:yellow),
+      "                                ||".colorize(:green),
+      "                      ,   ,   ,  |".colorize(:blue),
+      "                    ||__||__||__||".colorize(:magenta),
+      "                    ..--..--..--.|".colorize(:red),
+      "                    ||__||__||__||".colorize(:light_red),
+      "                    ..--..--..--.|".colorize(:yellow),
+      "||  ||  ||  ||  ||  ||  ||  ||  ||".colorize(:green)
     ]
     @image6 = [
-      "                           __/ \\--\\",
-      "                           U |_|__|",
-      "                                ||",
-      "                                ||",
-      "                      ,   ,   ,  |",
-      "                    ||__||__||__||",
-      "                    ..--..--..--.|",
-      "                    ||__||__||__||",
-      "                    ..--..--..--.|",
-      "||  ||  ||  ||  ||  ||  ||  ||  ||"
+      "                           __/ \\--\\".colorize(:red),
+      "                           U |_|__|".colorize(:light_red),
+      "                                ||".colorize(:yellow),
+      "                                ||".colorize(:green),
+      "                      ,   ,   ,  |".colorize(:blue),
+      "                    ||__||__||__||".colorize(:magenta),
+      "                    ..--..--..--.|".colorize(:red),
+      "                    ||__||__||__||".colorize(:light_red),
+      "                    ..--..--..--.|".colorize(:yellow),
+      "||  ||  ||  ||  ||  ||  ||  ||  ||".colorize(:green)
     ]
     @image7 = [
-      "                           __/ \\--\\",
-      "                           U |_|__|",
-      "                                ||",
-      "                                ||",
-      "                          ,   ,  |",
-      "                        ||__||__||",
-      "                        ..--..--.|",
-      "                        ||__||__||",
-      "                        ..--..--.|",
-      "||  ||  ||  ||  ||  ||  ||  ||  ||"
+      "                           __/ \\--\\".colorize(:red),
+      "                           U |_|__|".colorize(:light_red),
+      "                                ||".colorize(:yellow),
+      "                                ||".colorize(:green),
+      "                          ,   ,  |".colorize(:blue),
+      "                        ||__||__||".colorize(:magenta),
+      "                        ..--..--.|".colorize(:red),
+      "                        ||__||__||".colorize(:light_red),
+      "                        ..--..--.|".colorize(:yellow),
+      "||  ||  ||  ||  ||  ||  ||  ||  ||".colorize(:green)
     ]
     @image8 = [
-      "                           __/ \\--\\",
-      "                           U |_|__|",
-      "                                ||",
-      "                                ||",
-      "                             ,  |",
-      "                            ||__||",
-      "                            ..--.|",
-      "                            ||__||",
-      "                            ..--.|",
-      "||  ||  ||  ||  ||  ||  ||  ||  ||"
+      "                           __/ \\--\\".colorize(:red),
+      "                           U |_|__|".colorize(:light_red),
+      "                                ||".colorize(:yellow),
+      "                                ||".colorize(:green),
+      "                              ,  |".colorize(:blue),
+      "                            ||__||".colorize(:magenta),
+      "                            ..--.|".colorize(:red),
+      "                            ||__||".colorize(:light_red),
+      "                            ..--.|".colorize(:yellow),
+      "||  ||  ||  ||  ||  ||  ||  ||  ||".colorize(:green)
     ]
     @gameover = [
 
-      "                                ||",
-      "                                ||",
-      "                                 |",
-      "                                ||",
-      "                                .|",
-      "                      __/ \\--\\  .|",
-      "                      U |_|__|  .|",
-      "||  ||  ||  ||  ||  ||  ||  ||  ||"
+      "                                ||".colorize(:red),
+      "                                ||".colorize(:light_red),
+      "                                 |".colorize(:yellow),
+      "                                ||".colorize(:blue),
+      "                                .|".colorize(:magenta),
+      "                      __/ \\--\\  .|".colorize(:red),
+      "                      U |_|__|  .|".colorize(:light_red),
+      "||  ||  ||  ||  ||  ||  ||  ||  ||".colorize(:yellow)
     ]
     @images = [@image0, @image1, @image2, @image3, @image4, @image5, @image6, @image7, @image8, @gameover]
   end
