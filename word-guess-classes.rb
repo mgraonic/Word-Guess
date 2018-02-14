@@ -27,15 +27,19 @@ class Word
 
   def check_guess(guess)
     if @guessed_letters.include?(guess)
-      puts "\nYou've already guessed this letter."
+      puts "\nYou've already guessed this letter.".colorize(:yellow)
     else
       @guessed_letters << guess
     end
     if !@letters.include?(guess)
-      @wrong_guesses += 1
-      puts "\nYou guessed wrong! Try again.".colorize(:red)
+      if guess.empty?
+        puts "No letter inputted. Try again."
+      else
+        @wrong_guesses += 1
+        puts "\nYou guessed wrong! Try again.".colorize(:red)
+      end
     else
-      puts "\nCorrect!!!".colorize(:green)
+        puts "\nCorrect!!!".colorize(:green)
     end
   end
 
@@ -64,7 +68,7 @@ class Image
       "                           U |_|__|".colorize(:light_red),
       "                                ||".colorize(:yellow),
       "                                ||".colorize(:green),
-      ",   ,  ,   ,  ,   ,   ,   ,   ,  |".colorize(:blue),
+      ",   ,   ,   ,   ,   ,   ,   ,   ,|".colorize(:blue),
       "||__||__||__||__||__||__||__||__||".colorize(:magenta),
       "|.--..--..--..--..--..--..--..--.|".colorize(:red),
       "||__||__||__||__||__||__||__||__||".colorize(:light_red),
@@ -76,7 +80,7 @@ class Image
       "                           U |_|__|".colorize(:light_red),
       "                                ||".colorize(:yellow),
       "                                ||".colorize(:green),
-      "    ,  ,   ,  ,   ,   ,   ,   ,  |".colorize(:blue),
+      "    ,   ,   ,   ,   ,   ,   ,   ,|".colorize(:blue),
       "    ||__||__||__||__||__||__||__||".colorize(:magenta),
       "    ..--..--..--..--..--..--..--.|".colorize(:red),
       "    ||__||__||__||__||__||__||__||".colorize(:light_red),
@@ -88,7 +92,7 @@ class Image
       "                           U |_|__|".colorize(:light_red),
       "                                ||".colorize(:yellow),
       "                                ||".colorize(:green),
-      "        ,  ,  ,   ,   ,   ,   ,  |".colorize(:blue),
+      "        ,   ,   ,   ,   ,   ,   ,|".colorize(:blue),
       "        ||__||__||__||__||__||__||".colorize(:magenta),
       "        ..--..--..--..--..--..--.|".colorize(:red),
       "        ||__||__||__||__||__||__||".colorize(:light_red),
@@ -100,7 +104,7 @@ class Image
       "                           U |_|__|".colorize(:light_red),
       "                                ||".colorize(:yellow),
       "                                ||".colorize(:green),
-      "           ,  ,   ,   ,   ,   ,  |".colorize(:blue),
+      "            ,   ,   ,   ,   ,   ,|".colorize(:blue),
       "            ||__||__||__||__||__||".colorize(:magenta),
       "            ..--..--..--..--..--.|".colorize(:red),
       "            ||__||__||__||__||__||".colorize(:light_red),
@@ -112,7 +116,7 @@ class Image
       "                           U |_|__|".colorize(:light_red),
       "                                ||".colorize(:yellow),
       "                                ||".colorize(:green),
-      "                  ,   ,   ,   ,  |".colorize(:blue),
+      "                ,   ,   ,   ,   ,|".colorize(:blue),
       "                ||__||__||__||__||".colorize(:magenta),
       "                ..--..--..--..--.|".colorize(:red),
       "                ||__||__||__||__||".colorize(:light_red),
@@ -124,7 +128,7 @@ class Image
       "                           U |_|__|".colorize(:light_red),
       "                                ||".colorize(:yellow),
       "                                ||".colorize(:green),
-      "                      ,   ,   ,  |".colorize(:blue),
+      "                    ,   ,   ,   ,|".colorize(:blue),
       "                    ||__||__||__||".colorize(:magenta),
       "                    ..--..--..--.|".colorize(:red),
       "                    ||__||__||__||".colorize(:light_red),
@@ -136,7 +140,7 @@ class Image
       "                           U |_|__|".colorize(:light_red),
       "                                ||".colorize(:yellow),
       "                                ||".colorize(:green),
-      "                      ,   ,   ,  |".colorize(:blue),
+      "                    ,   ,   ,   ,|".colorize(:blue),
       "                    ||__||__||__||".colorize(:magenta),
       "                    ..--..--..--.|".colorize(:red),
       "                    ||__||__||__||".colorize(:light_red),
@@ -148,7 +152,7 @@ class Image
       "                           U |_|__|".colorize(:light_red),
       "                                ||".colorize(:yellow),
       "                                ||".colorize(:green),
-      "                          ,   ,  |".colorize(:blue),
+      "                        ,   ,   ,|".colorize(:blue),
       "                        ||__||__||".colorize(:magenta),
       "                        ..--..--.|".colorize(:red),
       "                        ||__||__||".colorize(:light_red),
@@ -160,7 +164,7 @@ class Image
       "                           U |_|__|".colorize(:light_red),
       "                                ||".colorize(:yellow),
       "                                ||".colorize(:green),
-      "                              ,  |".colorize(:blue),
+      "                            ,   ,|".colorize(:blue),
       "                            ||__||".colorize(:magenta),
       "                            ..--.|".colorize(:red),
       "                            ||__||".colorize(:light_red),
