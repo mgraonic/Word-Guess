@@ -1,7 +1,7 @@
 require "faker"
 require_relative "word-guess-classes.rb"
 
-word = Word.new(Faker::Science.element)
+word = Word.new(Faker::Science.element.downcase)
 game_image = Image.new
 new_game = Game.new(word, game_image)
 
@@ -16,7 +16,7 @@ until play_new_game == false
   print "> "
   play_on = gets.chomp.downcase
   if play_on == "yes"
-    random_word = Word.new(Faker::Science.element)
+    random_word = Word.new(Faker::Science.element.downcase)
     game_2 = Game.new(random_word, game_image)
     game_2.start_game
     game_2.game_play
