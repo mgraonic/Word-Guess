@@ -1,9 +1,10 @@
 require 'colorize'
 
 class Word
-  attr_accessor :guessed_letters, :blanks, :wrong_guesses, :letters
+  attr_accessor :guessed_letters, :blanks, :wrong_guesses, :letters, :name
 
   def initialize(word)
+    @name = word
     @letters = word.chars
     @blanks = []
     @guessed_letters = []
@@ -219,7 +220,8 @@ class Game
         if @word.letters == @word.blanks && @word.wrong_guesses < 9
           puts "You won!"
         else
-          puts "You lost"
+          puts "You lost!"
+          puts "Your word was #{@word.name.upcase}!"
         end
         loop_again = false
       end
