@@ -26,12 +26,13 @@ class Word
     if @guessed_letters.include?(guess)
       puts "\nYou've already guessed this letter."
     else
-      puts "\nCorrect!!!"
       @guessed_letters << guess
     end
     if !@letters.include?(guess)
       @wrong_guesses += 1
       puts "\nYou guessed wrong! Try again."
+    else
+      puts "\nCorrect!!!"
     end
   end
 
@@ -44,7 +45,7 @@ class Word
   end
 
   def print_guesses
-    print "Guessed letters: "
+    print "\nGuessed letters: "
     @guessed_letters.each do | value |
       print value.upcase
       print " "
@@ -183,35 +184,44 @@ class Image
 
 end
 
-new_word = Word.new("aardvark")
-house = Image.new
-puts "Welcome to Word Guess"
-print "Word to Guess: "
-new_word.print_blanks
-puts "\nYou have #{9 - new_word.wrong_guesses} guesses!"
-puts
-puts house.print_image(0)
-
-loop_again = true
-until loop_again == false
-  puts "Guess a letter!"
-  print "> "
-  guess = gets.chomp.downcase
-  new_word.check_guess(guess)
-  new_word.print_guesses
-  puts
-  print "Word To Guess: "
-  new_word.fill_blanks(guess)
-  new_word.print_blanks
-  puts
-  puts "You have #{9 - new_word.wrong_guesses} guesses left!"
-  puts house.print_image(new_word.wrong_guesses)
-  if new_word.wrong_guesses == 9 || (new_word.letters == new_word.blanks && new_word.wrong_guesses < 9)
-    if new_word.letters == new_word.blanks && new_word.wrong_guesses < 9
-      puts "You won!"
-    else
-      puts "You lost"
-    end
-    loop_again = false
+class Game
+  attr_reader :start_game, :game_play
+  def initialize(word, image)
+    @word = word
+    @image = image
   end
+
+  def start_game
+    print "Word to Guess: "
+    @word.print_blanks
+    puts "\nYou have #{9 - @word.wrong_guesses} guesses!"
+    puts
+    puts @image.print_image(0)
+  end
+
+  def game_play
+    loop_again = true
+    until loop_again == false
+      puts "\n\nGuess a letter!"
+      print "> "
+      guess = gets.chomp.downcase
+      @word.check_guess(guess)
+      @word.print_guesses
+      puts
+      print "Word To Guess: "
+      @word.fill_blanks(guess)
+      @word.print_blanks
+      puts "\nYou have #{9 - @word.wrong_guesses} guesses left!"
+      puts @image.print_image(@word.wrong_guesses)
+      if @word.wrong_guesses == 9 || (@word.letters == @word.blanks && @word.wrong_guesses < 9)
+        if @word.letters == @word.blanks && @word.wrong_guesses < 9
+          puts "You won!"
+        else
+          puts "You lost"
+        end
+        loop_again = false
+      end
+    end
+  end
+
 end
